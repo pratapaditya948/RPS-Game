@@ -64,7 +64,6 @@ function playGame(myMove){
   computerMove = changeTextToEmoji(computerMove);
 
   updateScoreElements();
-  document.querySelector('.reset-notif').innerHTML = '';
 }
 
 function updateScoreElements(){
@@ -82,8 +81,7 @@ function resetScore(){
   userMove = '';
   computerMove ='';
   updateScoreElements();
-
-  document.querySelector('.reset-notif').innerHTML = 'Score has been RESET!!';
+  alert('Score has been reset');
 }
 
 function changeTextToEmoji(Move){

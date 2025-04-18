@@ -20,22 +20,15 @@ body {
   font-weight: bold;
 }
 
-.middle-section {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-}
-
 .rock-button, .paper-button, .scissors-button {
   border: 3px solid white;
-  border-radius: 60px;
+  border-radius: 50px;
 
   background-color: rgb(25, 25, 25);
 
-  width: 120px;
-  height: 120px;
+  width: 100px;
+  height: 100px;
 
-  margin: 10px 10px 10px 4px;
   cursor: pointer;
 }
 
@@ -57,14 +50,14 @@ body {
   margin-bottom: 60px;
 }
 
+.reset-section {
+  position: absolute;
+  bottom: 50px;
+}
+
 .reset-button {
   border: none;
   font-size: 15px;
   padding: 8px 12px;
   cursor: pointer;
 }
-
-.reset-notif {
-  margin: 30px;
-}
-
