@@ -55,9 +55,11 @@ body {
   bottom: 50px;
 }
 
-.reset-button {
+.reset-button, .autoplay-button {
+  background-color: white;
   border: none;
   font-size: 15px;
   padding: 8px 12px;
   cursor: pointer;
+  margin: 20px;
 }
