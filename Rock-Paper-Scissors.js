@@ -4,16 +4,29 @@ let score = JSON.parse(localStorage.getItem('score'))||{
   tie:0
 };
 
+let intervalId;
+
 document.querySelector('.js-score').innerHTML = `Wins: ${score.win}, Losses: ${score.lose}, Ties: ${score.tie}`;
 
-/* if(score === null){
-score = {
-  win: 0,
-  lose: 0,
-  tie:0
-};
-} */
+//addEventListeners for all interactive buttons
 
+document.querySelector('.rock-button').addEventListener('click',() => {
+  playGame('Rock');
+});
+document.querySelector('.paper-button').addEventListener('click',() => {
+  playGame('Paper');
+});
+document.querySelector('.scissors-button').addEventListener('click',() =>{
+  playGame('Scissors');
+});
+document.querySelector('.reset-button').addEventListener('click', () => {
+  resetScore();
+});
+document.querySelector('.autoplaybutton').addEventListener('click',() => {
+  autoPlay();
+});
+
+//random move picker
 function pickRandomMove(){
   const randomNumber = Math.random();
   let Move = '';
@@ -29,7 +42,8 @@ function pickRandomMove(){
   return Move;
 } 
 
-function playGame(myMove){
+//playing actual game
+function playGame(myMove) {
   let computerMove = pickRandomMove();
   let result = '';
 
@@ -45,12 +59,12 @@ function playGame(myMove){
     score.win++;
   }
 
+  //saving score
   localStorage.setItem('score', JSON.stringify(score));
-
-  /* alert(`You picked ${myMove}. Computer picked ${computerMove}. \nResult: ${result} \nWins: ${score.win}, Losses: ${score.lose}, Ties: ${score.tie}`); */
+  //converting text to emoji
   computerMove = changeTextToEmoji(computerMove);
   myMove = changeTextToEmoji(myMove);
-
+  //printing the result and score
   updateScoreElements(result, myMove, computerMove);
 }
 
@@ -71,8 +85,6 @@ function resetScore(){
   updateScoreElements(result, myMove, computerMove);
   alert('Score has been reset');
 }
-
-let intervalId;
 
 function autoPlay(){
   let buttonStatus = document.querySelector('.autoplay-button').innerText;
